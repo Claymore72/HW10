@@ -37,11 +37,6 @@ class Birthday(Field):
         self.validate_birthday()
 
 
-    def __init__(self, value):
-        super().__init__(value)
-        if value:
-            self.validate_birthday()
-
 class Phone(Field):
     def validate_phone(self):
         if not self._value.isdigit() or len(self._value) != 10:
@@ -56,10 +51,7 @@ class Phone(Field):
         self._value = new_value
         self.validate_phone()
 
-    def __init__(self, value):
-        super().__init__(value)
-        self.validate_phone()
-
+    
 class Record:
     def __init__(self, name, birthday = None ):
         self.name = Name(name)
